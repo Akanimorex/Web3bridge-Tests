@@ -89,7 +89,7 @@ async function main() {
 
     tx.wait();
 
-    // console.log(tx,"TRANSACTION LIQUIDITY")
+    console.log(tx,"liqu addition")
 
     console.log("liquidity added!");
 
@@ -111,9 +111,9 @@ async function main() {
     //Removing liquidity
 
     const tokenA = ethers.parseUnits('1',18);
-    const tokenB = ethers.parseUnits('2',6);
+    const tokenB = ethers.parseUnits('1',6);
 
-    const liquidity = ethers.parseUnits('0.000000000001516536',18)
+    const liquidity = ethers.parseUnits('0.000000000001515276',18)
 
     await USDC_USDT_LPCONTRACT.approve(ROUTER,liquidity);
 
@@ -128,6 +128,8 @@ async function main() {
     )
 
     removeLiqTx.wait();
+
+    console.log(removeLiqTx, "remove liq")
 
     console.log("liquidity removed!");
 
