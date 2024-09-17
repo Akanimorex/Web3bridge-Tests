@@ -30,7 +30,11 @@ contract Ludo {
     }
     
     function startGame() external {
+        require(playerCount == 4, "players are not complete");
 
+        for(uint8 i = 0; i < playerCount; i++) {
+            players[i].playerPoints = 0;
+        }
     }
 
 
