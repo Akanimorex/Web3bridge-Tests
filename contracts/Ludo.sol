@@ -32,9 +32,18 @@ contract Ludo {
     function startGame() external {
         require(playerCount == 4, "players are not complete");
 
-        for(uint8 i = 0; i < playerCount; i++) {
-            players[i].playerPoints = 0;
+       for(uint8 i = 0; i < playerCount; i++) {
+        players[i].playerPoints = 0;
+        // to roll a dice for a player
+        uint8 diceRoll = rollDice();
+            diceRoll;
         }
+        
+        
+    }
+
+    function rollDice() private view returns (uint8) {
+        return uint8(uint256(keccak256(abi.encodePacked(block.prevrandao, msg.sender))) % 6) + 1;
     }
 
 
